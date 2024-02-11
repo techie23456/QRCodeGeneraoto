@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import {useState} from 'react'
+
+export default function App() {
+
+const [msg,setMsg] = useState('');
+
+const [myMsg,setMyMsg] = useState('');
+
+
+return (
+  <div className='App'>
+   
+    <input type = "text" onChange={(event)=>{
+
+                                       console.log(">>>>>>",event.target.value);
+
+                                       setMsg(event.target.value)
+                                             }               
+                                    } />
+   
+    <button onClick={() =>{
+
+     setMyMsg("https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + msg);
+
+                           }
+                     }> Click Me </button>
+
+    <h2> {myMsg}</h2>
+     <img src={myMsg} alt="" id="qr-img"></img>
+  </div>
+);
 }
-
-export default App;
