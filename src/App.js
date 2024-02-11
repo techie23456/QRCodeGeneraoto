@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './App.css'
 
 import {useState} from 'react'
 
@@ -11,9 +11,11 @@ const [myMsg,setMyMsg] = useState('');
 
 
 return (
-  <div className='App'>
+  <div className='App' id ="wrapper">
+
+    <h1> 🐺🐺🐺🐺 QR Code Generator 🐺🐺🐺🐺</h1>
    
-    <input type = "text" onChange={(event)=>{
+    <input type = "text" id ="inputBox" placeholder='Enter Text or Link here..' onChange={(event)=>{
 
                                        console.log(">>>>>>",event.target.value);
 
@@ -29,7 +31,9 @@ return (
                      }> Click Me </button>
 
     <h2> {myMsg}</h2>
+    <div id ="qr">
      <img src={myMsg} alt="" id="qr-img"></img>
+     </div>
   </div>
 );
 }
